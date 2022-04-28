@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+  </head>
+  <body>
+<script type="text/javascript">
+function Binary_search_function(ar1, lowest_element, last_element, searched_element)
+{
+	if (last_element >= lowest_element) {
+		let mid_element = lowest_element + Math.floor((last_element- lowest_element) / 2);
+		if (ar1[mid_element] == searched_element)
+			return mid_element;
+		if (ar1[mid_element] > searched_element)
+			return Binary_search_function(ar1, lowest_element, mid_element - 1, searched_element);
+		return Binary_search_function(ar1, mid_element + 1,last_element, searched_element);
+	}
+	return -1;
+}
+let ar1 = [ 15,18,24,32,35,39,44,47,52,53,57,59];
+let searched_element = 39;
+let size_of_ar1 = ar1.length
+let final_result = Binary_search_function(ar1, 0, size_of_ar1 - 1, searched_element);
+(final_result == -1) ? document.write( "not found")
+				: document.write("found at index: " +final_result);
+    </script>
+  </body>
+</html>
